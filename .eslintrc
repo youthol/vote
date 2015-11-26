@@ -1,0 +1,40 @@
+{
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "linebreak-style": [2, "unix"],
+    "eqeqeq": [2, "smart"],
+    "comma-spacing": [1, {
+      "before": false,
+      "after": true
+    }],
+    "block-spacing": [1, "always"],
+    "space-after-keywords": [1, "always"],
+    "space-before-keywords": [1, "always"],
+    "space-before-blocks": [1, "always"],
+    "space-in-parens": [1, "never"],
+    "space-return-throw-case": 1,
+    "space-unary-ops": [1, {
+      "words": true,
+      "nonwords": false
+    }],
+    "space-infix-ops": [1, {
+      "int32Hint": false
+    }],
+    "semi-spacing": 1,
+    /*"no-console": 1,*/
+    "no-unused-vars": 1,
+  /*  "semi": 1 */
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "plugins": [
+    "html"
+  ],
+  "parser": "babel-eslint"
+}
