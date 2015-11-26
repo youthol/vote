@@ -2,6 +2,7 @@
 又是刷票机. =. =
 
 ## 运行环境
+
  - Node5.0
  - babel
 
@@ -11,6 +12,12 @@
 - 需要在Node5.0下运行, 低版本nodejs不支持
 - 账号和投票数据保存在leancloud, 可以通过 http://42.96.201.176:3000/ 查看
 
+## 部署
+
+```javascript
+ npm install -g babel eslint babel-eslint
+ npm install
+```
 
 ## TODO
 
