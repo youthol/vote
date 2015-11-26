@@ -17,6 +17,7 @@
 ```javascript
  npm install -g babel eslint babel-eslint
  npm install
+ node index.js
 ```
 
 ## TODO
