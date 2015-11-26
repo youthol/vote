@@ -1,12 +1,10 @@
 import request from 'request-promise'
-import ckParser from '../util/cookie'
 
 let opts = {
   method: 'post',
   url: 'http://mzml.univs.cn:8081/user/addvote',
   form: {
     type: 1,
-    id: 309
   }
 }
 
@@ -17,7 +15,7 @@ export default (form, cks) => {
       let ck = request.cookie(`JSESSIONID=${cks['JSESSIONID']}`);
       j.setCookie(ck, 'http://mzml.univs.cn:8081');
       opts['jar'] = j;
-      opts['form'] = form;
+      opts.form = form;
     })
     .then(() => {
       return request(opts)

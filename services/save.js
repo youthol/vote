@@ -2,20 +2,19 @@ import AV from 'avoscloud-sdk'
 
 AV.initialize('wzzbBstX9CDDyDw2qYkuFxBD', 'dvwgsuubVoB8k2fnXQyrXhGv');
 
-const save = (auth, result)=> {
+const save = (auth, type, result)=> {
 
   AV.User.logIn(auth.user, auth.pass)
     .then((user) => {
-      if (!user.get('today')) {
-        user.set('today', true);
-        user.save();
-        console.log('保存成功!!!');
+      if (result.status || /限投一票/.test(result.message)) {
+        user.set(type, true);
+        return user.save();
       } else {
-        console.log('已经保存过了');
+        console.log('没有啊:'.red + result);
       }
     }).catch(function(err) {
-      console.log('保存失败');
       console.error(err)
+      return false;
     });
 }
 

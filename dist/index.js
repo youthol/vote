@@ -61,13 +61,23 @@ const flow = (function () {
       }
       console.log('sigin '.blue + JSON.stringify(task4));
 
-      // task5 vote
-      form = { type: 1, id: 309 };
-      let task5 = yield (0, _vote2.default)(form, task4.cookies);
-      console.log('vote '.blue + JSON.stringify(task5));
-
+      // TODO: 下面三个请求可以并发同时进行, 带完善
+      // 主站
+      let task5 = yield (0, _vote2.default)({ id: 309, type: 1 }, task4.cookies);
+      console.log('主站投票 '.blue + JSON.stringify(task5));
       // task6 save
-      yield (0, _save.save)(auth, task5);
+      var msg = yield (0, _save.save)(auth, 'today', task5);
+      console.log(`save? ${ msg }`);
+
+      //微信
+      task5 = yield (0, _vote2.default)({ id: 243, type: 2 }, task4.cookies);
+      console.log('微信 '.yellow + JSON.stringify(task5));
+      yield (0, _save.save)(auth, 'weichat', task5);
+
+      //心灵之约
+      task5 = yield (0, _vote2.default)({ id: 242, type: 2 }, task4.cookies);
+      console.log('心灵之约 '.white + JSON.stringify(task5));
+      yield (0, _save.save)(auth, 'heart', task5);
     } catch (e) {
       console.log(e.message);
       if (/您的帐号已经被注销/.test(e.message)) {
@@ -84,12 +94,11 @@ const flow = (function () {
 
 let auth = { user: '', pass: '******' };
 
-// 获取今天未刷的账号
 var query = new _avoscloudSdk2.default.Query(_avoscloudSdk2.default.User);
 query.notEqualTo('today', true);
 query.notEqualTo('isAvailable', false);
 query.descending('createdAt');
-query.limit(500); //这里修改一次性读取多少个账号
+query.limit(600); //这里修改一次性读取多少个账号
 query.find().then(users => {
   if (users.length === 0) {
     console.log('没有可用账号,程序退出'.green);

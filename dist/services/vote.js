@@ -8,18 +8,13 @@ var _requestPromise = require('request-promise');
 
 var _requestPromise2 = _interopRequireDefault(_requestPromise);
 
-var _cookie = require('../util/cookie');
-
-var _cookie2 = _interopRequireDefault(_cookie);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 let opts = {
   method: 'post',
   url: 'http://mzml.univs.cn:8081/user/addvote',
   form: {
-    type: 1,
-    id: 309
+    type: 1
   }
 };
 
@@ -29,7 +24,7 @@ exports.default = (form, cks) => {
     let ck = _requestPromise2.default.cookie(`JSESSIONID=${ cks['JSESSIONID'] }`);
     j.setCookie(ck, 'http://mzml.univs.cn:8081');
     opts['jar'] = j;
-    opts['form'] = form;
+    opts.form = form;
   }).then(() => {
     return (0, _requestPromise2.default)(opts);
   }).then(JSON.parse).catch(e => {
