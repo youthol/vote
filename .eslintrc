@@ -3,7 +3,7 @@
     "modules": true
   },
   "rules": {
-    "quotes": [2, "single"],
+    "quotes": [1, "single"],
     "linebreak-style": [2, "unix"],
     "eqeqeq": [2, "smart"],
     "comma-spacing": [1, {
