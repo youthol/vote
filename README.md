@@ -22,7 +22,7 @@
 
 ## TODO
 
-- [ ] 数据库由leancloud改为mongodb
+- [x] 数据库由leancloud改为mongodb
 - [ ] 修改注册账号逻辑, 无需邮箱激活验证, 直接保存到数据库
 - [ ] 把注册页面合并到repo中
 - [ ] 编写脚本, 一键刷新投票状态
