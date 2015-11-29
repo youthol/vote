@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>用户列表</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h2>测试数据</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>用户名</th>
+          <th>密码</th>
+          <th>主站</th>
+          <th>心灵之约</th>
+          <th>微信</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{user.name}}</td>
+          <td>{{user.pass}}</td>
+          <td>{{user.vote.website}}</td>
+          <td>{{user.vote.xinlingzhiyue}}</td>
+          <td>{{user.vote.weichat}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

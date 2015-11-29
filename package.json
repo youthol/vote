@@ -4,16 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node dist/index.js",
+    "dev": "supervisor dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "wynfrith",
   "license": "ISC",
   "devDependencies": {
-    "babel-eslint": "^4.1.6",
-    "babel-preset-es2015-node5": "^1.1.0",
-    "babel-preset-es2016-node5": "^1.1.2",
-    "eslint-config-future": "^2.1.1",
-    "eslint-config-remitbri-es7": "^1.0.0",
+    "babel-core": "^6.2.1",
+    "babel-eslint": "*",
+    "babel-preset-es2016-node5": "*",
     "eslint-plugin-html": "^1.1.0"
   },
   "dependencies": {
@@ -22,6 +22,16 @@
     "color": "^0.10.1",
     "colors": "^1.1.2",
     "iconv-lite": "^0.4.13",
+    "kerberos": "0.0.17",
+    "koa": "^1.1.2",
+    "koa-bodyparser": "^2.0.1",
+    "koa-json": "^1.1.1",
+    "koa-morgan": "^0.4.0",
+    "koa-nunjucks-2": "^2.0.0",
+    "koa-route": "^2.4.2",
+    "koa-static": "^1.5.2",
+    "mongoose": "^4.2.8",
+    "mongoose-timestamp": "^0.4.0",
     "request-promise": "^1.0.2"
   }
 }
