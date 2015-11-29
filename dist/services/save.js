@@ -16,7 +16,7 @@ _avoscloudSdk2.default.initialize('wzzbBstX9CDDyDw2qYkuFxBD', 'dvwgsuubVoB8k2fnX
 const save = (auth, type, result) => {
 
   _avoscloudSdk2.default.User.logIn(auth.user, auth.pass).then(user => {
-    if (result.status || /限投一票/.test(result.message)) {
+    if (result && (result.status || /限投一票/.test(result.message))) {
       user.set(type, true);
       return user.save();
     } else {
