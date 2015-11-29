@@ -11,6 +11,7 @@ db.on('error', () => { console.error('connect failed') })
 const UserSchema = new Schema({
   name: { type: String, unique: true },
   pass: { type: String, default: '******' },
+  isAvailable: { type: Boolean, default: true }, 
   vote: {
     website: { type: Boolean, default: false },
     weichat: { type: Boolean, default: false },
